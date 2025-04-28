@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Наташка Черепашка</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header class="header">
+    <a class="logo">
+        <img src="сонвик.png" alt="logo" width="200px" height="150px">
+    </a>
+    <nav class="nav">
+        <a href="index.html" class="nav-item">Главная</a>
+        <a href="korzina.html" class="nav-item">Корзина</a>
+        
+        
+        
+        <a href="zakaz.html" class="nav-item">Заказы</a>
+    </nav>
+</header>
+<main class="main">
+    <div class="product-page">
+        <div class="product-info">
+            <div class="product-image">
+                <img src="наташка черепашка.png" alt="Наташка Черепашка" width="350px" height="450px">
+            </div>
+            <div class="product-actions">
+                <h1>Наташка Черепашка</h1>
+                <p class="product-price">Цена: 1500 руб.</p>
+                
+                <button class="add-to-cart-btn" id="add-to-cart-btn" onclick="toggleCartStatus()">Добавить в корзину</button>
+            </div>
+        </div>
+        <div class="product-description">
+            <h2>Описание</h2>
+            <p>Вязанная игрушка Наташка Черепашка, в зелено-розовом
+                оттенке. 
+                Черепашка изготовлена из 100% микро полиэстера, 
+                мягкого и фактурного на ощупь. 
+                Внутри - мягкий, отлично держащий форму 
+                наполнитель-синтепон.</p>
+        </div>
+        <div class="product-characteristics">
+            <h2>Характеристики</h2>
+            <ul>
+                <li>Материал: Микро полиэстера, синтепон</li>
+                <li>Размер: 35 см</li>
+                <li>Цвет: Зелено-розовый</li>
+                <li>Рекомендуемый возраст: 2 мес+</li>
+            </ul>
+            <h2>Рекомендации  по уходу</h2>
+            <p>Стирать вручную, в теплой воде с детским средством. Аккуратно 
+                отжать, но не выкручивать, просушить на ровной поверхности вдали от отопительных приборов. </p>
+        </div>
+    </div>
+</main>
+<footer class="footer" id="footer">
+    <p>Контакты </p>
+    <p>+79374768664</p>
+    <p>+79964011758</p>
+    <p>почта</p>
+    <p>г.Уфа, ул.Черниковская 16</p>
+</footer>
+<script>
+    let stockCount = 10;
+    let isInCart = false;
+
+    function toggleCartStatus() {
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const stockCountElement = document.getElementById('stock-count');
+
+        if (isInCart) {
+            removeFromCart();
+            addToCartBtn.innerText = 'Добавить в корзину';
+        } else {
+            addToCart();
+            addToCartBtn.innerText = 'Удалить из корзины';
+        }
+
+        isInCart = !isInCart;
+    }
+
+    function addToCart() {
+        const product = {
+            name: "Наташка черепашка",
+            price: 1500,
+            image: "наташка черепашка.png",
+            quantity: 1
+        };
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        alert('Товар добавлен в корзину!');
+    }
+
+    function removeFromCart() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.findIndex(item => item.name === "Наташка черепашка");
+        if (index !== -1) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert('Товар удален из корзины!');
+        }
+    }
+
+    // Проверка состояния корзины при загрузке страницы
+    document.addEventListener('DOMContentLoaded', () => {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        isInCart = cartItems.some(item => item.name === "Наташка черепашка");
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const stockCountElement = document.getElementById('stock-count');
+
+        if (isInCart) {
+            addToCartBtn.innerText = 'Удалить из корзины';
+        } else {
+            addToCartBtn.innerText = 'Добавить в корзину';
+        }
+
+        stockCountElement.innerText = stockCount;
+    });
+    
+</script>
+</body>
+</html>

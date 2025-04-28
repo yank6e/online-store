@@ -1,0 +1,320 @@
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    background-image: url("photo_5350434459813537682_y.png"); /* Добавляем фоновую картинку */
+    background-size: cover; /* Масштабируем изображение */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Не повторяем изображение */
+    font-family: 'Century Schoolbook', Times, serif; /* Изменяем шрифт на Times New Roman */
+}
+
+html {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 45px;
+}
+
+h1 {
+    margin-top: 0;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 0px #ffffff, -1px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 1px 0px #ffffff; /* Добавляем обводку */
+}
+
+
+h5 {
+    text-align: justify; /* Выравниваем текст по ширине */
+    color: rgb(0, 0, 0);
+}
+
+h1, p {
+    color: rgb(0, 0, 0);
+}
+
+
+
+p {
+    font-size: 1.5em; /* Устанавливаем размер текста */
+    font-weight: bold; /* Устанавливаем жирность текста */
+    text-align: justify; /* Выравниваем текст по ширине */
+}
+
+img {
+    border: 0;
+}
+
+
+.header .logo img {
+    width: 120px;
+    height: auto;
+}
+
+.header {
+    width: 100%;
+    min-width: 460px;
+    max-width: 960px;
+    margin: 0 auto 30px;
+    padding: 30px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav {
+    margin: -5px 0 0 -5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /* Вертикальное выравнивание */
+}
+
+.nav-item {
+    background: #be7a8b8c;
+    width: 130px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0); /* Черный цвет текста для кнопок */
+    text-decoration: none;
+    display: flex;
+    margin: 5px 0 0 5px;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease, transform 0.3s ease; /* Добавляем плавный переход */
+    border-radius: 25px; /* Делаем кнопки круглыми */
+}
+
+.nav-item:hover {
+    background: #da5f808c; /* Изменяем цвет фона при наведении */
+    transform: scale(1.1); /* Увеличиваем размер кнопки при наведении */
+}
+
+
+.sqr {
+    height: 300px;
+    width: 300px;
+    background: #1fde2c;
+    transition: background 0.3s ease, transform 0.3s ease; /* Добавляем плавный переход */
+}
+
+.main {
+    width: 100%;
+    min-width: 460px;
+    max-width: 960px;
+    margin: auto;
+    flex: auto;
+    box-sizing: border-box;
+}
+
+.box {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin: 0 0 40px -50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 21px; /* Размер шрифта 16 пикселей */
+}
+
+.box-base {
+    margin-left: 50px;
+    flex: 1 0 430px;
+}
+
+.box-side {
+    margin-left: 50px;
+    font: none;
+}
+
+.content {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.banners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.banner-item {
+    flex: 1 1 45%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.banner {
+    background: #FFDB89;
+    width: 100%;
+    min-width: 100px;
+    min-height: 200px;
+    font-size: 3rem;
+    color: #fff;
+    margin: 0 0 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease, transform 0.3s ease; /* Добавляем плавный переход */
+    border-radius: 15px; /* Делаем баннеры круглыми */
+}
+
+.banner:hover {
+    background: #FFA985; /* Изменяем цвет фона при наведении */
+    transform: scale(1.05); /* Увеличиваем размер баннера при наведении */
+}
+
+.posts {
+    margin: 0 0 30px 30px;
+    flex: 1 1 200px;
+}
+
+.comments {
+    margin: 0 0 30px 30px;
+    flex: 1 1 200px;
+}
+
+.comment {
+    display: flex;
+    transition: background 0.3s ease, transform 0.3s ease; /* Добавляем плавный переход */
+}
+
+.comment:hover {
+    background: rgba(131, 159, 255, 0.1); /* Добавляем легкую тень при наведении */
+    transform: scale(1.02); /* Увеличиваем размер комментария при наведении */
+}
+
+.comment-side {
+    padding-right: 20px;
+    flex: none;
+}
+
+.comment-base {
+    flex: auto;
+}
+
+.footer {
+    background: #be7a8b8c;
+    width: 700%;
+    max-width: 1000px;
+    min-width: 300px;
+    color: #000000;
+    margin: auto;
+    padding:100 px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 11px; /* Размер шрифта 16 пикселей */
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 0px #ffffff, -1px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 1px 0px #ffffff; /* Добавляем обводку */
+}
+
+@media screen and (max-width: 800px) {
+    .banners {
+        margin-left: -30px;
+        display: flex;
+        flex-basis: 100%;
+    }
+
+    .banner {
+        margin-left: 30px;
+    }
+
+    .posts {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .box {
+        flex-direction: column; /* Размещаем элементы вертикально */
+        align-items: center;
+    }
+
+    .box-base {
+        margin: 0;
+        text-align: center; /* Центрируем текст */
+    }
+
+    .box-side {
+        margin: 0 0 20px 0; /* Добавляем отступ снизу у изображения */
+    }
+
+    .box-side img {
+        width: 100%; /* Картинка растягивается на ширину экрана */
+        max-width: 330px; /* Лимитируем максимальную ширину */
+        height: auto; /* Автоматическое соотношение сторон */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        display: block;
+    }
+
+    .banners {
+        margin: 0;
+        display: block;
+    }
+
+    .banner {
+        margin-left: 0;
+    }
+
+    .posts {
+        margin: 0;
+    }
+}
+
+/* Стили для страницы товара */
+.product-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    margin-bottom: 20px;
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #000000fe;
+    margin-bottom: 10px;
+}
+
+.buy-btn, .add-to-cart-btn {
+    padding: 20px 20px;
+    font-size: 20px;
+    color: #000000;
+    background-color:  #be7a8b8c;
+    font-family: 'Century Schoolbook', Times, serif; /* Изменяем шрифт на Times New Roman */
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мишка Черничка</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header class="header">
+    <a class="logo">
+        <img src="сонвик.png" alt="logo" width="200px" height="150px">
+    </a>
+    <nav class="nav">
+        <a href="index.html" class="nav-item">Главная</a>
+        <a href="korzina.html" class="nav-item">Корзина</a>
+        
+        
+        
+        <a href="zakaz.html" class="nav-item">Заказы</a>
+    </nav>
+</header>
+<main class="main">
+    <div class="product-page">
+        <div class="product-info">
+            <div class="product-image">
+                <img src="photo_5346306652644700885_y.png" alt="Мишка Черничка" width="350px" height="450px">
+            </div>
+            <div class="product-actions">
+                <h1>Мишка Черничка</h1>
+                <p class="product-price">Цена: 2300 руб.</p>
+             
+                <button class="add-to-cart-btn" id="add-to-cart-btn" onclick="toggleCartStatus()">Добавить в корзину</button>
+            </div>
+        </div>
+        <div class="product-description">
+            <h2>Описание</h2>
+            <p>Вязанная игрушка Мишка Черничка, в фиолетовом 
+                оттенке. 
+                Мишка изготовлен из 100% микро полиэстера, 
+                мягкого и фактурного на ощупь. 
+                Внутри - мягкий, отлично держащий форму 
+                наполнитель-синтепон. </p>
+        </div>
+        <div class="product-characteristics">
+            <h2>Характеристики</h2>
+            <ul>
+                <li>Материал: Микро полиэстер, синтепон,пластиковые глазки</li>
+                <li>Размер: 25 см</li>
+                <li>Цвет: Фиолетовый</li>
+                <li>Рекомендуемый возраст: 2 мес+</li>
+            </ul>
+            <h2>Рекомендации  по уходу</h2>
+            <p>Стирать вручную, в теплой воде с детским средством. Аккуратно 
+                отжать, но не выкручивать, просушить на ровной поверхности вдали от отопительных приборов. </p>
+        </div>
+    </div>
+</main>
+<footer class="footer" id="footer">
+    <p>Контакты </p>
+    <p>+79374768664</p>
+    <p>+79964011758</p>
+    <p>почта</p>
+    <p>г.Уфа, ул.Черниковская 16</p>
+</footer>
+
+<script>
+    let stockCount = 10;
+    let isInCart = false;
+
+    function toggleCartStatus() {
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const stockCountElement = document.getElementById('stock-count');
+
+        if (isInCart) {
+            removeFromCart();
+            addToCartBtn.innerText = 'Добавить в корзину';
+        } else {
+            addToCart();
+            addToCartBtn.innerText = 'Удалить из корзины';
+        }
+
+        isInCart = !isInCart;
+    }
+
+    function addToCart() {
+        const product = {
+            name: "Мишка Черничка",
+            price: 2300,
+            image: "photo_5346306652644700885_y.png",
+            quantity: 1
+        };
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        alert('Товар добавлен в корзину!');
+    }
+
+    function removeFromCart() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.findIndex(item => item.name === "Мишка Черничка");
+        if (index !== -1) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert('Товар удален из корзины!');
+        }
+    }
+
+    // Проверка состояния корзины при загрузке страницы
+    document.addEventListener('DOMContentLoaded', () => {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        isInCart = cartItems.some(item => item.name === "Мишка Черничка");
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const stockCountElement = document.getElementById('stock-count');
+
+        if (isInCart) {
+            addToCartBtn.innerText = 'Удалить из корзины';
+        } else {
+            addToCartBtn.innerText = 'Добавить в корзину';
+        }
+
+        stockCountElement.innerText = stockCount;
+    });
+    
+</script>
+</body>
+</html>

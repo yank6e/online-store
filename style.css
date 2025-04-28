@@ -1,0 +1,87 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.main {
+    padding: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+/* Стили для страницы товара */
+.product-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image {
+    margin-bottom: 20px;
+}
+
+.product-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #333;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.product-description, .product-characteristics {
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+}
+
+.product-characteristics ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-characteristics li {
+    margin-bottom: 10px;
+}
